@@ -2,7 +2,6 @@ ArrayList <Bullet> bullets = new ArrayList <Bullet>(); //Array list for class Bu
 
 int Olafy = height-160;
 int Olafx = width/2;
-Meteors[] meteors = new Meteors[0];
 //IMAGES
 PImage Olaf;
 PImage OlafBack;
@@ -16,10 +15,8 @@ void setup() {
   OlafBack = loadImage("Olaf Walking Back 3.png");
   Background = loadImage("pine-trees-snow.jpg");
   size(Background.width, Background.height);//size of canvas
-  for (int m=0; m<meteors.length; m++) {//generatig a variable size for the meteor array
-    meteors[m] = new Meteors(random(30, 60), random(.1, 10));
   }
-  noStroke();//removing line stroke
+  noStroke();
 }
 
 void draw() {
@@ -28,11 +25,6 @@ void draw() {
     image(OlafBack, Olafx, Olafy);
   } else {
     image(Olaf, Olafx, Olafy);
-  }
-  for (int i=0; i < meteors.length; i++) { //set the functions of the particle system
-    meteors[i].display();//displaying the meteors 
-    meteors[i].move();//adding movement to the meteors
-    meteors[i].flyaround();//creating movement from the sides of the screen to allow the meteors to reappear on screen
   }
   for (int j = bullets.size ()-1; j>=0; j--) {//setting the functions for the bullet projectiles
     Bullet b = bullets.get(j);
